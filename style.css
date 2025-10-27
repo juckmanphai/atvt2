@@ -51,7 +51,7 @@ body {
     display: block;
 }
 
-/* ===== IMPROVED HEADERS ===== */
+/* ===== HEADER STYLES ===== */
 .main-section-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -515,6 +515,43 @@ tr:hover td {
     line-height: 1.2;
 }
 
+/* ===== SUMMARY STYLING ===== */
+.summaryResult {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.summaryResult h2 {
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.summaryResult h3 {
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.summaryResult p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.summaryResult ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.summaryResult li {
+    margin-bottom: 5px;
+}
+
 /* Summary table styles */
 .summaryResult table {
     min-width: 450px;
@@ -736,82 +773,6 @@ tr:hover td {
     border-left: 4px solid #138496;
 }
 
-/* ===== SUMMARY STYLING ===== */
-.summaryResult {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.summaryResult h2 {
-    color: #333;
-    border-bottom: 2px solid #4CAF50;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.summaryResult h3 {
-    color: #555;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.summaryResult p {
-    margin: 8px 0;
-    line-height: 1.5;
-}
-
-.summaryResult ul {
-    margin: 10px 0;
-    padding-left: 20px;
-}
-
-.summaryResult li {
-    margin-bottom: 5px;
-}
-
-/* ===== RESPONSIVE SUMMARY FRAME ===== */
-@media (max-width: 768px) {
-  .summaryResult {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 10px !important;
-    border-radius: 10px !important;
-    box-sizing: border-box !important;
-  }
-  
-  .modal-content-container {
-    padding: 10px !important;
-    margin: 10px !important;
-    width: calc(100% - 20px) !important;
-    max-width: calc(100% - 20px) !important;
-    max-height: 95vh; /* บนมือถือให้สูงเกือบเต็มจอ */
-  }
-  
-  #modalBodyContent {
-    width: 100% !important;
-    padding: 0 !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .summaryResult {
-    padding: 8px !important;
-    border-width: 1px !important;
-  }
-  
-  .modal-content-container {
-    padding: 5px !important;
-    margin: 5px !important;
-    width: calc(100% - 10px) !important;
-    max-width: calc(100% - 10px) !important;
-  }
-}
-
 /* ===== FOOTER STYLING ===== */
 footer {
     text-align: center;
@@ -851,6 +812,8 @@ footer div {
 }
 
 /* ===== RESPONSIVE STYLES ===== */
+
+/* Desktop Styles */
 @media (min-width: 769px) {
     .management-actions {
         display: flex;
@@ -868,6 +831,7 @@ footer div {
     }
 }
 
+/* Tablet & Mobile Styles */
 @media (max-width: 768px) {
     .container {
         padding: 5px;
@@ -1094,8 +1058,56 @@ footer div {
     .modal-control-btn {
         width: 100%;
     }
+    
+    /* ปรับปรุงตารางในหน้าจอมือถือให้พอดีกับกรอบสีชมพู */
+    .summaryResult table {
+        width: 100% !important;
+        min-width: unset !important;
+        font-size: 0.6rem !important;
+        table-layout: fixed;
+    }
+    
+    .summaryResult th,
+    .summaryResult td {
+        font-size: 0.6rem !important;
+        padding: 4px 3px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 80px; /* จำกัดความกว้างสูงสุด */
+    }
+    
+    /* ปรับความกว้างคอลัมน์ให้เหมาะสม */
+    .summaryResult th:nth-child(1),
+    .summaryResult td:nth-child(1) { width: 20%; } /* กิจกรรม */
+    .summaryResult th:nth-child(2),
+    .summaryResult td:nth-child(2) { width: 15%; } /* วันที่ */
+    .summaryResult th:nth-child(3),
+    .summaryResult td:nth-child(3) { width: 20%; } /* เวลา */
+    .summaryResult th:nth-child(4),
+    .summaryResult td:nth-child(4) { width: 15%; } /* รวมเวลา */
+    .summaryResult th:nth-child(5),
+    .summaryResult td:nth-child(5) { width: 30%; } /* รายละเอียด */
+    
+    /* ปรับปรุงกรอบสีชมพูให้พอดีกับเนื้อหา */
+    .summaryResult[style*="border: 1.5px solid #F660EB"] {
+        padding: 8px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    /* ปรับปรุง modal container */
+    .modal-content-container {
+        padding: 5px !important;
+        margin: 5px !important;
+        width: calc(100% - 10px) !important;
+        max-width: calc(100% - 10px) !important;
+    }
 }
 
+/* Small Mobile Styles */
 @media (max-width: 480px) {
     .container {
         padding: 3px;
@@ -1265,6 +1277,68 @@ footer div {
         padding: 5px 6px !important;
         font-size: 0.85rem !important;
     }
+    
+    /* ปรับปรุงตารางสำหรับหน้าจอเล็กมาก */
+    .summaryResult table {
+        font-size: 0.5rem !important;
+    }
+    
+    .summaryResult th,
+    .summaryResult td {
+        font-size: 0.5rem !important;
+        padding: 3px 2px !important;
+    }
+    
+    /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
+    .summaryResult th:nth-child(1),
+    .summaryResult td:nth-child(1) { width: 18%; }
+    .summaryResult th:nth-child(2),
+    .summaryResult td:nth-child(2) { width: 12%; }
+    .summaryResult th:nth-child(3),
+    .summaryResult td:nth-child(3) { width: 18%; }
+    .summaryResult th:nth-child(4),
+    .summaryResult td:nth-child(4) { width: 12%; }
+    .summaryResult th:nth-child(5),
+    .summaryResult td:nth-child(5) { width: 40%; }
+}
+
+/* ===== RESPONSIVE SUMMARY FRAME ===== */
+@media (max-width: 768px) {
+  .summaryResult {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .modal-content-container {
+    padding: 10px !important;
+    margin: 10px !important;
+    width: calc(100% - 20px) !important;
+    max-width: calc(100% - 20px) !important;
+    max-height: 95vh; /* บนมือถือให้สูงเกือบเต็มจอ */
+  }
+  
+  #modalBodyContent {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .summaryResult {
+    padding: 8px !important;
+    border-width: 1px !important;
+  }
+  
+  .modal-content-container {
+    padding: 5px !important;
+    margin: 5px !important;
+    width: calc(100% - 10px) !important;
+    max-width: calc(100% - 10px) !important;
+  }
 }
 
 /* ===== DARK MODE SUPPORT ===== */
