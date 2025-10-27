@@ -561,16 +561,54 @@ tr:hover td {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    table-layout: auto;
 }
 
 .summaryResult th,
 .summaryResult td {
-    padding: 3px 2px;
+    padding: 6px 8px;
     font-size: clamp(0.6rem, 2.2vw, 0.7rem);
     text-align: left;
+    vertical-align: top;
+}
+
+/* ตั้งค่าเฉพาะสำหรับคอลัมน์ต่างๆ */
+.summaryResult th:nth-child(1), /* กิจกรรม */
+.summaryResult td:nth-child(1) {
+    white-space: nowrap;
+    min-width: 80px;
+    max-width: 120px;
+}
+
+.summaryResult th:nth-child(2), /* วันที่ */
+.summaryResult td:nth-child(2) {
+    white-space: nowrap;
+    min-width: 70px;
+    max-width: 90px;
+}
+
+.summaryResult th:nth-child(3), /* เวลา */
+.summaryResult td:nth-child(3) {
+    white-space: nowrap;
+    min-width: 90px;
+    max-width: 110px;
+}
+
+.summaryResult th:nth-child(4), /* รวมเวลา */
+.summaryResult td:nth-child(4) {
+    white-space: nowrap;
+    min-width: 70px;
+    max-width: 90px;
+}
+
+.summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
+.summaryResult td:nth-child(5) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 100px;
+    max-width: 200px;
 }
 
 .summaryResult th {
@@ -578,6 +616,7 @@ tr:hover td {
     color: white;
     font-weight: 600;
     border: 1px solid #e67e22;
+    font-size: clamp(0.55rem, 2vw, 0.65rem);
 }
 
 .summaryResult tr:nth-child(even) {
@@ -957,20 +996,80 @@ footer div {
         min-width: 500px;
     }
     
+    /* ปรับปรุงตารางสรุปผลบนมือถือ */
     .summaryResult table {
-        font-size: clamp(0.45rem, 1.5vw, 0.6rem) !important;
+        width: 100% !important;
+        min-width: unset !important;
+        font-size: clamp(0.5rem, 2.5vw, 0.65rem) !important;
+        table-layout: fixed;
     }
     
     .summaryResult th,
     .summaryResult td {
-        font-size: clamp(0.45rem, 1.5vw, 0.6rem) !important;
-        padding: 1px 0.5px !important;
+        font-size: clamp(0.5rem, 2.5vw, 0.65rem) !important;
+        padding: 4px 6px !important;
+        line-height: 1.2;
+    }
+    
+    /* ปรับความกว้างคอลัมน์ให้เหมาะสมกับมือถือ */
+    .summaryResult th:nth-child(1), /* กิจกรรม */
+    .summaryResult td:nth-child(1) {
+        width: 22% !important;
+        min-width: 60px;
+        max-width: 80px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    .summaryResult th:nth-child(2), /* วันที่ */
+    .summaryResult td:nth-child(2) {
+        width: 18% !important;
+        min-width: 50px;
+        max-width: 70px;
+        white-space: normal;
+    }
+    
+    .summaryResult th:nth-child(3), /* เวลา */
+    .summaryResult td:nth-child(3) {
+        width: 20% !important;
+        min-width: 70px;
+        max-width: 90px;
+        white-space: normal;
+    }
+    
+    .summaryResult th:nth-child(4), /* รวมเวลา */
+    .summaryResult td:nth-child(4) {
+        width: 15% !important;
+        min-width: 50px;
+        max-width: 70px;
+        white-space: normal;
+    }
+    
+    .summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
+    .summaryResult td:nth-child(5) {
+        width: 25% !important;
+        min-width: 80px;
+        max-width: 120px;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    /* ปรับปรุงกรอบสีชมพูให้พอดีกับเนื้อหา */
+    .summaryResult[style*="border: 1.5px solid #F660EB"] {
+        padding: 10px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
     
     /* Modal responsive */
     .modal-content-container {
-        padding: 15px;
-        margin: 10px;
+        padding: 8px !important;
+        margin: 8px !important;
+        width: calc(100% - 16px) !important;
+        max-width: calc(100% - 16px) !important;
         max-height: 95vh;
     }
     
@@ -1057,53 +1156,6 @@ footer div {
     
     .modal-control-btn {
         width: 100%;
-    }
-    
-    /* ปรับปรุงตารางในหน้าจอมือถือให้พอดีกับกรอบสีชมพู */
-    .summaryResult table {
-        width: 100% !important;
-        min-width: unset !important;
-        font-size: 0.6rem !important;
-        table-layout: fixed;
-    }
-    
-    .summaryResult th,
-    .summaryResult td {
-        font-size: 0.6rem !important;
-        padding: 4px 3px !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        max-width: 80px; /* จำกัดความกว้างสูงสุด */
-    }
-    
-    /* ปรับความกว้างคอลัมน์ให้เหมาะสม */
-    .summaryResult th:nth-child(1),
-    .summaryResult td:nth-child(1) { width: 20%; } /* กิจกรรม */
-    .summaryResult th:nth-child(2),
-    .summaryResult td:nth-child(2) { width: 15%; } /* วันที่ */
-    .summaryResult th:nth-child(3),
-    .summaryResult td:nth-child(3) { width: 20%; } /* เวลา */
-    .summaryResult th:nth-child(4),
-    .summaryResult td:nth-child(4) { width: 15%; } /* รวมเวลา */
-    .summaryResult th:nth-child(5),
-    .summaryResult td:nth-child(5) { width: 30%; } /* รายละเอียด */
-    
-    /* ปรับปรุงกรอบสีชมพูให้พอดีกับเนื้อหา */
-    .summaryResult[style*="border: 1.5px solid #F660EB"] {
-        padding: 8px !important;
-        margin: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-    }
-    
-    /* ปรับปรุง modal container */
-    .modal-content-container {
-        padding: 5px !important;
-        margin: 5px !important;
-        width: calc(100% - 10px) !important;
-        max-width: calc(100% - 10px) !important;
     }
 }
 
@@ -1207,14 +1259,67 @@ footer div {
         padding: 6px 8px;
     }
     
+    /* ปรับปรุงตารางสำหรับหน้าจอเล็กมาก */
     .summaryResult table {
-        font-size: clamp(0.4rem, 1.2vw, 0.55rem) !important;
+        font-size: clamp(0.45rem, 3vw, 0.6rem) !important;
     }
     
     .summaryResult th,
     .summaryResult td {
-        font-size: clamp(0.4rem, 1.2vw, 0.55rem) !important;
-        padding: 4px 6px;
+        font-size: clamp(0.45rem, 3vw, 0.6rem) !important;
+        padding: 3px 4px !important;
+    }
+    
+    /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
+    .summaryResult th:nth-child(1), /* กิจกรรม */
+    .summaryResult td:nth-child(1) {
+        width: 20% !important;
+        min-width: 50px;
+        max-width: 70px;
+        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    }
+    
+    .summaryResult th:nth-child(2), /* วันที่ */
+    .summaryResult td:nth-child(2) {
+        width: 16% !important;
+        min-width: 45px;
+        max-width: 60px;
+        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    }
+    
+    .summaryResult th:nth-child(3), /* เวลา */
+    .summaryResult td:nth-child(3) {
+        width: 18% !important;
+        min-width: 60px;
+        max-width: 80px;
+        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    }
+    
+    .summaryResult th:nth-child(4), /* รวมเวลา */
+    .summaryResult td:nth-child(4) {
+        width: 14% !important;
+        min-width: 45px;
+        max-width: 60px;
+        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    }
+    
+    .summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
+    .summaryResult td:nth-child(5) {
+        width: 32% !important;
+        min-width: 70px;
+        max-width: 100px;
+        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    }
+    
+    .summaryResult[style*="border: 1.5px solid #F660EB"] {
+        padding: 8px !important;
+    }
+    
+    .modal-content-container {
+        padding: 5px !important;
+        margin: 5px !important;
+        width: calc(100% - 10px) !important;
+        max-width: calc(100% - 10px) !important;
     }
     
     /* Footer ultra mobile */
@@ -1277,68 +1382,45 @@ footer div {
         padding: 5px 6px !important;
         font-size: 0.85rem !important;
     }
-    
-    /* ปรับปรุงตารางสำหรับหน้าจอเล็กมาก */
-    .summaryResult table {
-        font-size: 0.5rem !important;
-    }
-    
-    .summaryResult th,
-    .summaryResult td {
-        font-size: 0.5rem !important;
-        padding: 3px 2px !important;
-    }
-    
-    /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
-    .summaryResult th:nth-child(1),
-    .summaryResult td:nth-child(1) { width: 18%; }
-    .summaryResult th:nth-child(2),
-    .summaryResult td:nth-child(2) { width: 12%; }
-    .summaryResult th:nth-child(3),
-    .summaryResult td:nth-child(3) { width: 18%; }
-    .summaryResult th:nth-child(4),
-    .summaryResult td:nth-child(4) { width: 12%; }
-    .summaryResult th:nth-child(5),
-    .summaryResult td:nth-child(5) { width: 40%; }
 }
 
 /* ===== RESPONSIVE SUMMARY FRAME ===== */
 @media (max-width: 768px) {
-  .summaryResult {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 10px !important;
-    border-radius: 10px !important;
-    box-sizing: border-box !important;
-  }
-  
-  .modal-content-container {
-    padding: 10px !important;
-    margin: 10px !important;
-    width: calc(100% - 20px) !important;
-    max-width: calc(100% - 20px) !important;
-    max-height: 95vh; /* บนมือถือให้สูงเกือบเต็มจอ */
-  }
-  
-  #modalBodyContent {
-    width: 100% !important;
-    padding: 0 !important;
-  }
+    .summaryResult {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 12px !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+    }
+    
+    .modal-content-container {
+        padding: 10px !important;
+        margin: 10px !important;
+        width: calc(100% - 20px) !important;
+        max-width: calc(100% - 20px) !important;
+        max-height: 95vh;
+    }
+    
+    #modalBodyContent {
+        width: 100% !important;
+        padding: 0 !important;
+    }
 }
 
 @media (max-width: 480px) {
-  .summaryResult {
-    padding: 8px !important;
-    border-width: 1px !important;
-  }
-  
-  .modal-content-container {
-    padding: 5px !important;
-    margin: 5px !important;
-    width: calc(100% - 10px) !important;
-    max-width: calc(100% - 10px) !important;
-  }
+    .summaryResult {
+        padding: 8px !important;
+        border-width: 1px !important;
+    }
+    
+    .modal-content-container {
+        padding: 6px !important;
+        margin: 6px !important;
+        width: calc(100% - 12px) !important;
+        max-width: calc(100% - 12px) !important;
+    }
 }
 
 /* ===== DARK MODE SUPPORT ===== */
