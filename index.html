@@ -221,13 +221,22 @@
       <button type="button" onclick="openExportOptionsModal()" style="flex: 1; background-color: #0d47a1;">บันทึกข้อมูล</button>
     </div>
     
-    <div class="entry-group">
-      <label for="backup-password">รหัสผ่านสำรองข้อมูล (ไม่บังคับ):</label>
-      <div style="position: relative;">
-        <input type="password" id="backup-password" placeholder="ถ้าไม่ต้องการใช้รหัสผ่าน ให้ปล่อยว่างไว้" style="width: 100%; padding-right: 40px;">
-        <span id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; user-select: none;">👁️</span>
-      </div>
-    </div>
+<div class="entry-group" style="font-size: clamp(0.5rem, 2.5vw, 1rem);">
+  <label for="backup-password">รหัสผ่านสำรองข้อมูล (ไม่บังคับ):</label>
+  <div style="position: relative;">
+    <input 
+      type="password" 
+      id="backup-password" 
+      placeholder="ถ้าไม่ต้องการใช้รหัสผ่าน ให้ปล่อยว่างไว้" 
+      style="width: 100%; padding-right: 40px; font-size: clamp(0.5rem, 2.5vw, 1rem);"
+    >
+    <span 
+      id="toggle-password" 
+      style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; user-select: none; font-size: clamp(0.5rem, 2.5vw, 1rem);"
+    >👁️</span>
+  </div>
+</div>
+
     <div class="entry-group">
       <label for="backup-password-confirm">ยืนยันรหัสผ่าน:</label>
       <div style="position: relative;">
