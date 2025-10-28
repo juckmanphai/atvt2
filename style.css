@@ -799,7 +799,7 @@ tr:hover td {
     overflow-y: auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: modalFadeIn 0.3s;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
 }
 
 @keyframes modalFadeIn {
@@ -1204,8 +1204,8 @@ footer div {
     
     /* Modal responsive */
     .modal-content-container {
-        padding: 8px !important;
-        margin: 8px !important;
+        padding: 5px !important;
+        margin: 5px !important;
         width: calc(100% - 16px) !important;
         max-width: calc(100% - 16px) !important;
         max-height: 95vh;
@@ -1399,12 +1399,12 @@ footer div {
     
     /* ปรับปรุงตารางสำหรับหน้าจอเล็กมาก */
     .summaryResult table {
-        font-size: clamp(0.45rem, 3vw, 0.6rem) !important;
+        font-size: clamp(0.35rem, 3vw, 0.6rem) !important;
     }
     
     .summaryResult th,
     .summaryResult td {
-        font-size: clamp(0.45rem, 3vw, 0.6rem) !important;
+        font-size: clamp(0.35rem, 3vw, 0.6rem) !important;
         padding: 3px 4px !important;
     }
     
@@ -1414,7 +1414,7 @@ footer div {
         width: 12% !important;
         min-width: 50px;
         max-width: 70px;
-        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
     }
     
     .summaryResult th:nth-child(2), /* วันที่ */
@@ -1422,7 +1422,7 @@ footer div {
         width: 16% !important;
         min-width: 45px;
         max-width: 60px;
-        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
     }
     
     .summaryResult th:nth-child(3), /* เวลา */
@@ -1430,7 +1430,7 @@ footer div {
         width: 20% !important;
         min-width: 60px;
         max-width: 80px;
-        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
     }
     
     .summaryResult th:nth-child(4), /* รวมเวลา */
@@ -1438,7 +1438,7 @@ footer div {
         width: 18% !important;
         min-width: 45px;
         max-width: 60px;
-        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
     }
     
     .summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
@@ -1446,7 +1446,7 @@ footer div {
         width: 34% !important;
         min-width: 70px;
         max-width: 100px;
-        font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
     }
     
     .summaryResult[style*="border: 1.5px solid #F660EB"] {
@@ -1534,8 +1534,8 @@ footer div {
     }
     
     .modal-content-container {
-        padding: 10px !important;
-        margin: 10px !important;
+        padding: 5px !important;
+        margin: 5px !important;
         width: calc(100% - 20px) !important;
         max-width: calc(100% - 20px) !important;
         max-height: 95vh;
@@ -1554,8 +1554,8 @@ footer div {
     }
     
     .modal-content-container {
-        padding: 6px !important;
-        margin: 6px !important;
+        padding: 3px !important;
+        margin: 3px !important;
         width: calc(100% - 12px) !important;
         max-width: calc(100% - 12px) !important;
     }
