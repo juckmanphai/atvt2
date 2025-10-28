@@ -731,14 +731,14 @@ tr:hover td {
     /* ปรับความกว้างคอลัมน์ให้เหมาะสมกับมือถือ */
     .summaryResult table.recent-activities th:nth-child(1), /* กิจกรรม */
     .summaryResult table.recent-activities td:nth-child(1) {
-        width: 22% !important;
+        width: 12% !important;
         min-width: 45px;
         max-width: 70px;
     }
     
     .summaryResult table.recent-activities th:nth-child(2), /* วันที่ */
     .summaryResult table.recent-activities td:nth-child(2) {
-        width: 18% !important;
+        width: 20% !important;
         min-width: 40px;
         max-width: 60px;
     }
@@ -752,7 +752,7 @@ tr:hover td {
     
     .summaryResult table.recent-activities th:nth-child(4), /* รวมเวลา */
     .summaryResult table.recent-activities td:nth-child(4) {
-        width: 15% !important;
+        width: 23% !important;
         min-width: 35px;
         max-width: 55px;
     }
@@ -840,7 +840,7 @@ tr:hover td {
     /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
     .summaryResult table.recent-activities th:nth-child(1), /* กิจกรรม */
     .summaryResult table.recent-activities td:nth-child(1) {
-        width: 20% !important;
+        width: 11% !important;
         min-width: 40px;
         max-width: 60px;
     }
@@ -854,14 +854,14 @@ tr:hover td {
     
     .summaryResult table.recent-activities th:nth-child(3), /* เวลา */
     .summaryResult table.recent-activities td:nth-child(3) {
-        width: 20% !important;
+        width: 21% !important;
         min-width: 50px;
         max-width: 70px;
     }
     
     .summaryResult table.recent-activities th:nth-child(4), /* รวมเวลา */
     .summaryResult table.recent-activities td:nth-child(4) {
-        width: 14% !important;
+        width: 22% !important;
         min-width: 30px;
         max-width: 45px;
     }
@@ -880,7 +880,7 @@ tr:hover td {
     /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
     .summaryResult th:nth-child(1), /* กิจกรรม */
     .summaryResult td:nth-child(1) {
-        width: 20% !important;
+        width: 11% !important;
         min-width: 50px;
         max-width: 70px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
@@ -896,7 +896,7 @@ tr:hover td {
     
     .summaryResult th:nth-child(3), /* เวลา */
     .summaryResult td:nth-child(3) {
-        width: 19% !important;
+        width: 20% !important;
         min-width: 60px;
         max-width: 80px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
@@ -904,7 +904,7 @@ tr:hover td {
     
     .summaryResult th:nth-child(4), /* รวมเวลา */
     .summaryResult td:nth-child(4) {
-        width: 15% !important;
+        width: 23% !important;
         min-width: 45px;
         max-width: 60px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
