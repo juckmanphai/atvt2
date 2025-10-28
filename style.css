@@ -769,7 +769,7 @@ tr:hover {
 /* ===== FORMAT MODAL STYLING ===== */
 .format-modal-content {
     background-color: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 500px;
@@ -1362,39 +1362,649 @@ tr:hover {
     
     /* Dark mode for improved headers */
     .header-add-data {
-        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-        border-left: 6px solid #e74c3c;
+        background: linear-gradient(135deg, #b33939 0%, #ff5252 100%);
     }
     
     .header-actions {
-        background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
-        border-left: 6px solid #27ae60;
+        background: linear-gradient(135deg, #218c74 0%, #33d9b2 100%);
     }
     
     .header-summary {
-        background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-        border-left: 6px solid #e67e22;
+        background: linear-gradient(135deg, #cc8e35 0%, #ffb142 100%);
     }
     
     .summary-subsection-header {
-        background: linear-gradient(135deg, #8e44ad 0%, #732d91 100%);
+        background: linear-gradient(135deg, #40407a 0%, #706fd3 100%);
+        color: #e0e0e0;
     }
     
     .summary-subsection-header.summary-date {
-        background: linear-gradient(135deg, #16a085 0%, #138a72 100%);
+        background: linear-gradient(135deg, #227093 0%, #34ace0 100%);
     }
     
     .summary-subsection-header.summary-range {
-        background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-        color: #ecf0f1;
+        background: linear-gradient(135deg, #ccae62 0%, #ffda79 100%);
+        color: #2d3436;
     }
     
     .summary-subsection-header.summary-controls {
-        background: linear-gradient(135deg, #e84393 0%, #d63031 100%);
+        background: linear-gradient(135deg, #b33939 0%, #ff5252 100%);
     }
 }
 
-/* ===== TIME INPUTS STYLING - IMPROVED FOR MOBILE ===== */
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-track {
+        background: #2d2d2d;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #777;
+    }
+}
+
+/* ===== FOCUS STYLES ===== */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    button,
+    input,
+    select,
+    textarea,
+    .main-section-header,
+    .summary-subsection-header,
+    .section-header {
+        transition: all 0.2s ease;
+    }
+}
+
+/* ===== LOADING STATES ===== */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+    .container {
+        border-width: 3px;
+    }
+    
+    .main-section-header,
+    .summary-subsection-header,
+    .section-header {
+        border-width: 2px;
+    }
+    
+    button {
+        border: 2px solid currentColor;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        border-width: 2px;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.pb-0 {
+    padding-bottom: 0;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===== CUSTOM SCROLLBAR FOR MODALS ===== */
+.modal-content-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.modal-content-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.modal-content-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+@media (prefers-color-scheme: dark) {
+    .modal-content-container::-webkit-scrollbar-track {
+        background: #2d2d2d;
+    }
+    
+    .modal-content-container::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+    
+    .modal-content-container::-webkit-scrollbar-thumb:hover {
+        background: #777;
+    }
+}
+
+/* ===== ENHANCED ANIMATIONS ===== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 500px;
+    }
+}
+
+.section-content.active {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* ===== IMPROVED FOCUS VISIBILITY ===== */
+.focus-visible {
+    outline: 3px solid #4CAF50;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+}
+
+/* ===== ERROR STATES ===== */
+.input-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ===== SUCCESS STATES ===== */
+.input-success {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+/* ===== PRINT OPTIMIZATIONS ===== */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-break-before {
+        page-break-before: always;
+    }
+    
+    .print-break-after {
+        page-break-after: always;
+    }
+    
+    .print-break-inside-avoid {
+        page-break-inside: avoid;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .container {
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+    }
+    
+    .form-section, .data-section {
+        background: white !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    table {
+        border: 1px solid #000 !important;
+    }
+    
+    th, td {
+        border: 1px solid #000 !important;
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+    .main-section-header,
+    .summary-subsection-header,
+    .section-header {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    button,
+    .manage-btn-inline,
+    .modal-control-btn,
+    .format-modal-buttons button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 44px;
+    }
+    
+    .management-actions button {
+        min-height: 36px;
+    }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== IMPROVED ACCESSIBILITY FOR VISUALLY IMPAIRED ===== */
+@media (prefers-contrast: high) {
+    .container {
+        border-width: 3px;
+        border-color: #000;
+    }
+    
+    .main-section-header,
+    .summary-subsection-header,
+    .section-header {
+        border: 2px solid #000;
+    }
+    
+    button {
+        border: 2px solid #000;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        border: 2px solid #000;
+    }
+    
+    table {
+        border: 2px solid #000;
+    }
+    
+    th, td {
+        border: 1px solid #000;
+    }
+}
+
+/* ===== DARK MODE PRINT FIXES ===== */
+@media print and (prefers-color-scheme: dark) {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .container,
+    .form-section,
+    .data-section,
+    .section-content,
+    table,
+    th,
+    td {
+        background: white !important;
+        color: black !important;
+        border-color: #000 !important;
+    }
+}
+
+/* ===== IMPROVED SELECT DROPDOWN STYLING ===== */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+@media (prefers-color-scheme: dark) {
+    select {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23e0e0e0' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    }
+}
+
+/* ===== IMPROVED PLACEHOLDER STYLING ===== */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    ::placeholder {
+        color: #aaa;
+    }
+}
+
+/* ===== IMPROVED FOCUS RING ACCESSIBILITY ===== */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.main-section-header:focus-visible,
+.summary-subsection-header:focus-visible,
+.section-header:focus-visible {
+    outline: 3px solid #4CAF50;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+}
+
+/* ===== HIGH DPI DISPLAY SUPPORT ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .container {
+        border-width: 1.5px;
+    }
+    
+    .main-section-header,
+    .summary-subsection-header,
+    .section-header {
+        border-width: 1.5px;
+    }
+}
+
+/* ===== LARGE TEXT SUPPORT ===== */
+@media (prefers-reduced-motion: no-preference) and (prefers-contrast: no-preference) {
+    .main-section-header,
+    .summary-subsection-header,
+    .section-header {
+        background-attachment: fixed;
+    }
+}
+
+/* ===== IMPROVED Z-INDEX MANAGEMENT ===== */
+.modal-overlay {
+    z-index: 10000;
+}
+
+.popup-overlay {
+    z-index: 10001;
+}
+
+.toast-notification {
+    z-index: 10002;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.will-change {
+    will-change: transform, opacity;
+}
+
+/* ===== IMPROVED TABLE RESPONSIVENESS ===== */
+.table-responsive {
+    position: relative;
+}
+
+.table-scroll-indicator {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.table-responsive.scrollable .table-scroll-indicator {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .table-scroll-indicator {
+        display: none;
+    }
+}
+
+/* ===== IMPROVED MANAGEMENT ROW STYLING ===== */
+.management-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.management-container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* สำหรับเดสก์ท็อป */
+@media (min-width: 769px) {
+  .management-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+/* สำหรับมือถือ */
+@media (max-width: 768px) {
+  .management-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .management-actions button {
+    flex: 1 1 40%;
+    min-width: 60px;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== IMPROVED MANAGEMENT ACTIONS FOR MOBILE ===== */
+@media (max-width: 768px) {
+  .management-actions {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px auto 12px;
+    animation: fadeIn 0.3s;
+    flex-wrap: nowrap;
+    width: 100%;
+    order: 3;
+    flex-direction: row;
+  }
+  
+  .management-actions.active {
+    display: flex;
+  }
+  
+  .management-actions button {
+    width: auto;
+    padding: 6px 10px;
+    font-size: 12px;
+    margin: 0;
+    border: none;
+    color: white;
+    transition: background-color 0.2s ease;
+    flex: 0 1 auto;
+    min-width: 60px;
+    white-space: nowrap;
+  }
+  
+  .select-wrapper {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  
+  .select-wrapper select {
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .manage-btn-inline {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    margin-right: 5px;
+  }
+}
+
+/* ===== IMPROVED SUMMARY SUBSECTION STYLING ===== */
+.summary-subsection {
+    margin-bottom: 15px;
+}
+
+.summary-subsection .entry-form {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #dee2e6;
+}
+
+.summary-subsection .entry-group {
+    margin-bottom: 10px;
+}
+
+.summary-subsection select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.summary-subsection label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ===== IMPROVED TIME INPUTS STYLING - MOBILE FRIENDLY ===== */
 .time-inputs-container {
     display: flex;
     align-items: center;
@@ -1436,966 +2046,46 @@ tr:hover {
     white-space: nowrap;
 }
 
-/* ปรับปรุงสำหรับมือถือ */
+/* สำหรับมือถือ */
 @media (max-width: 768px) {
     .time-inputs-container {
         flex-wrap: wrap;
         justify-content: space-between;
-        overflow-x: visible;
     }
     
     .time-input-group {
         flex: 0 0 48%;
         min-width: auto;
-        margin-bottom: 10px;
     }
     
     .time-separator {
         flex: 0 0 100%;
         text-align: center;
-        margin: 0 0 10px 0;
-        order: 3;
+        margin: 10px 0;
     }
 }
 
+/* สำหรับมือถือขนาดเล็ก */
 @media (max-width: 480px) {
     .time-input-group {
         flex: 0 0 100%;
     }
-    
-    .time-separator {
-        margin: 5px 0;
-    }
 }
-/* ===== TABLE STYLING ===== */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    margin-top: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-#activityTable,
-#modalBodyContent table,
-.summaryResult table,
-#activity-list-table,
-#activity-types-table,
-#user-list-table,
-#all-activities-table {
-    table-layout: auto;
-    width: auto;
-    min-width: 100%;
-    border-collapse: collapse;
-}
-
-#activityTable th, #activityTable td,
-#modalBodyContent table th, #modalBodyContent table td,
-.summaryResult table th, .summaryResult table td,
-#activity-list-table th, #activity-list-table td,
-#activity-types-table th, #activity-types-table td,
-#user-list-table th, #user-list-table td,
-#all-activities-table th, #all-activities-table td {
-    white-space: nowrap;
-    vertical-align: middle;
-    padding: 8px 6px;
-    line-height: 1.2;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    min-width: 600px;
-}
-
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-th {
-    background: linear-gradient(135deg, #4a6572 0%, #344955 100%);
-    color: white;
-    font-weight: 600;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    border: 1px solid #2c3e50;
-}
-
-/* สีพื้นหลังสลับกันสำหรับแต่ละแถว */
-tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-/* สีตัวหนังสือที่ชัดเจน */
-td {
-    color: #2c3e50;
-    font-weight: 500;
-    border: 1px solid #e9ecef;
-}
-
-/* Hover effect */
-tr:hover {
-    background-color: #e3f2fd;
-    transform: translateY(-1px);
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-tr:hover td {
-    color: #1a237e;
-    font-weight: 600;
-}
-
-/* สำหรับตารางใน summary */
-.summaryResult table {
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.summaryResult th {
-    background: linear-gradient(135deg, #ff9f43 0%, #ff8b33 100%);
-    color: white;
-    font-weight: 600;
-    border: 1px solid #e67e22;
-}
-
-.summaryResult td {
-    color: #2c3e50;
-    font-weight: 500;
-    border: 1px solid #f1f2f6;
-}
-
-.summaryResult tr:nth-child(even) {
-    background-color: #fff9f2;
-}
-
-.summaryResult tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.summaryResult tr:hover {
-    background-color: #ffeaa7;
-}
-
-.summaryResult tr:hover td {
-    color: #e17055;
-}
-
-/* สำหรับตารางกิจกรรม */
-#activityTable th {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-}
-
-#activityTable tr:hover {
-    background-color: #e8f4fd;
-}
-
-#activityTable tr:hover td {
-    color: #1565c0;
-}
-
-/* สำหรับตารางผู้ใช้ */
-#user-list-table th {
-    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
-    color: white;
-}
-
-#user-list-table tr:hover {
-    background-color: #e0f7fa;
-}
-
-#user-list-table tr:hover td {
-    color: #006064;
-}
-
-/* สำหรับตารางประเภทกิจกรรม */
-#activity-types-table th {
-    background: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
-    color: white;
-}
-
-#activity-types-table tr:hover {
-    background-color: #fff3e0;
-}
-
-#activity-types-table tr:hover td {
-    color: #e65100;
-}
-
-/* สำหรับตารางทั้งหมด */
-#all-activities-table th {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-#all-activities-table tr:hover {
-    background-color: #f3e5f5;
-}
-
-#all-activities-table tr:hover td {
-    color: #7b1fa2;
-}
-
-/* ปรับปรุงสำหรับมือถือ */
-@media (max-width: 768px) {
-    th, td {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    table {
-        min-width: 500px;
-    }
-    
-    th {
-        font-size: 0.8rem;
-        padding: 8px 10px;
-    }
-    
-    td {
-        font-size: 0.8rem;
-        padding: 8px 10px;
-    }
-    
-    .summaryResult table {
-        font-size: 0.75rem;
-    }
-    
-    .summaryResult th,
-    .summaryResult td {
-        font-size: 0.75rem;
-        padding: 6px 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    th, td {
-        padding: 8px 10px;
-        font-size: 0.75rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    th {
-        font-size: 0.75rem;
-        padding: 6px 8px;
-    }
-    
-    td {
-        font-size: 0.75rem;
-        padding: 6px 8px;
-    }
-    
-    .summaryResult table {
-        font-size: 0.7rem;
-    }
-    
-    .summaryResult th,
-    .summaryResult td {
-        font-size: 0.7rem;
-        padding: 4px 6px;
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    table {
-        background-color: #1e1e1e;
-        color: #e0e0e0;
-    }
-    
-    th {
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        color: #ecf0f1;
-        border: 1px solid #34495e;
-    }
-    
-    tr:nth-child(even) {
-        background-color: #2d2d2d;
-    }
-    
-    tr:nth-child(odd) {
-        background-color: #252525;
-    }
-    
-    td {
-        color: #ecf0f1;
-        border: 1px solid #34495e;
-    }
-    
-    tr:hover {
-        background-color: #34495e;
-    }
-    
-    tr:hover td {
-        color: #ffffff;
-    }
-    
-    /* Summary table in dark mode */
-    .summaryResult table {
-        background-color: #1e1e1e;
-    }
-    
-    .summaryResult th {
-        background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-        color: white;
-    }
-    
-    .summaryResult tr:nth-child(even) {
-        background-color: #2d2d2d;
-    }
-    
-    .summaryResult tr:nth-child(odd) {
-        background-color: #252525;
-    }
-    
-    .summaryResult tr:hover {
-        background-color: #e67e22;
-    }
-    
-    .summaryResult tr:hover td {
-        color: #ffffff;
-    }
-}
-
-/* ===== MODAL STYLING ===== */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 1);
-    z-index: 1000;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0;
-    overflow-y: auto;
-}
-
-.modal-content-container {
-    background-color: white;
-    padding: 5px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 800px;
-    max-height: 90vh;  /* ← เปลี่ยนเป็น 90vh */
-    overflow-y: auto;  /* ← ให้เลื่อนทั้ง modal */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: modalFadeIn 0.3s;
-    border: 1px solid #ddd;
-}
-@media (max-width: 768px) {
-    .summaryResult {
-        padding: 15px !important;
-        margin: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    
-    .modal-content-container {
-        max-height: 95vh; /* บนมือถือให้สูงเกือบเต็มจอ */
-        margin: 10px;
-        width: calc(100% - 20px);
-    }
-}
-@keyframes modalFadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.modal-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.modal-control-btn {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    color: white;
-}
-
-.modal-close-btn {
-    background-color: #6c757d;
-}
-
-.modal-close-btn:hover {
-    background-color: #5a6268;
-}
-
-/* ===== POPUP STYLING ===== */
-.popup-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.popup-content {
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: popupFadeIn 0.3s;
-}
-
-@keyframes popupFadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.modal-button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.close-popup-btn {
-    background-color: #6c757d;
-    color: white;
-}
 
-.close-popup-btn:hover {
-    background-color: #5a6268;
+/* ===== IMPROVED COMPACT FORM STYLING ===== */
+#activity-form {
+    padding: 8px !important;
+    margin: 0 !important;
 }
 
-/* ===== FORMAT MODAL STYLING ===== */
-.format-modal-content {
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-.format-modal-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.format-modal-buttons button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    color: white;
-}
-
-.btn-display {
-    background-color: #4CAF50;
-}
-
-.btn-display:hover {
-    background-color: #45a049;
-}
-
-.btn-xlsx {
-    background-color: #2196F3;
-}
-
-.btn-xlsx:hover {
-    background-color: #0b7dda;
-}
-
-.btn-pdf {
-    background-color: #f44336;
-}
-
-.btn-pdf:hover {
-    background-color: #d32f2f;
-}
-
-.btn-json {
-    background-color: #FF9800;
-}
-
-.btn-json:hover {
-    background-color: #e68900;
-}
-
-.btn-csv {
-    background-color: #009688;
-}
-
-.btn-csv:hover {
-    background-color: #00796b;
-}
-
-.btn-cancel {
-    background-color: #6c757d;
-}
-
-.btn-cancel:hover {
-    background-color: #5a6268;
-}
-@media (max-width: 768px) {
-    .summaryResult table.recent-activities {
-        font-size: clamp(0.45rem, 1.5vw, 0.6rem) !important;
-    }
-    
-    .summaryResult table.recent-activities th,
-    .summaryResult table.recent-activities td {
-        font-size: clamp(0.45rem, 1.5vw, 0.6rem) !important;
-        padding: 1px 0.5px !important;
-    }
-}
-.summaryResult table.recent-activities td {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    max-width: 80px !important; /* ปรับตามความเหมาะสม */
-}
-@media (max-width: 768px) {
-    .summaryResult table.recent-activities {
-        font-size: clamp(0.45rem, 1.5vw, 0.6rem) !important;
-    }
-    
-    .summaryResult table.recent-activities th,
-    .summaryResult table.recent-activities td {
-        font-size: clamp(0.45rem, 1.5vw, 0.6rem) !important;
-        padding: 1px 0.5px !important;
-    }
-}
-@media (max-width: 480px) {
-    .summaryResult table.recent-activities {
-        font-size: clamp(0.4rem, 1.2vw, 0.55rem) !important;
-    }
-    
-    .summaryResult table.recent-activities th,
-    .summaryResult table.recent-activities td {
-        font-size: clamp(0.4rem, 1.2vw, 0.55rem) !important;
-    }
-}
-.summaryResult table.recent-activities {
-    font-size: clamp(0.5rem, 1.8vw, 0.65rem) !important;
-}
-
-.summaryResult table.recent-activities th,
-.summaryResult table.recent-activities td {
-    font-size: clamp(0.5rem, 1.8vw, 0.65rem) !important;
-    padding: 2px 1px !important;
-    line-height: 1.1 !important;
-}
-.summaryResult table {
-    min-width: 450px;
-    font-size: clamp(0.6rem, 2.2vw, 0.7rem); /* ← ตรงนี้ */
-    text-align: left;
-}
-
-.summaryResult th,
-.summaryResult td {
-    padding: 3px 2px;
-    font-size: clamp(0.6rem, 2.2vw, 0.7rem); /* ← และตรงนี้ */
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-/* ===== RESPONSIVE SUMMARY FRAME ===== */
-@media (max-width: 768px) {
-    .summaryResult {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 10px !important;
-        border-radius: 10px !important;
-        box-sizing: border-box !important;
-    }
-    
-    .modal-content-container {
-        padding: 10px !important;
-        margin: 10px !important;
-        width: calc(100% - 20px) !important;
-        max-width: calc(100% - 20px) !important;
-    }
-    
-    #modalBodyContent {
-        width: 100% !important;
-        padding: 0 !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .summaryResult {
-        padding: 8px !important;
-        border-width: 1px !important;
-    }
-    
-    .modal-content-container {
-        padding: 5px !important;
-        margin: 5px !important;
-        width: calc(100% - 10px) !important;
-        max-width: calc(100% - 10px) !important;
-    }
-}
-#activityTable td,
-#activityTable th {
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: unset !important;
-    max-width: none !important;
-    word-break: break-word;
-}
-/* ===== ปรับเฉพาะตารางจัดการกิจกรรม (#activityTable) ===== */
-#activityTable {
-    table-layout: auto;
-    width: max-content; /* ตารางกว้างตามเนื้อหา */
-    min-width: 100%; /* แต่ไม่เล็กกว่า container */
-    font-size: clamp(0.7rem, 1.2vw, 0.8rem); /* ย่อขนาดอักษรอัตโนมัติ */
-}
-
-#activityTable td,
-#activityTable th {
-    white-space: nowrap !important; /* แสดงเป็นแถวเดียว */
-    overflow: hidden !important;    /* ซ่อนส่วนที่เกิน */
-    text-overflow: ellipsis !important; /* แสดง ... ถ้ายาวเกิน */
-    max-width: 200px; /* จำกัดความกว้างของแต่ละช่อง */
-    padding: 6px 8px;
-    line-height: 1.2;
-}
-
-/* เพิ่มการเลื่อนแนวนอนเฉพาะส่วนนี้ */
-.table-container {
-    overflow-x: auto !important;
-    width: 100%;
-    -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนในมือถือ */
-}
-/* ===== FOOTER STYLING ===== */
-footer {
-    text-align: center;
-    padding: 12px 15px;
-    margin: 10px auto 10px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    font-size: clamp(0.7rem, 2.5vw, 0.9rem); /* ปรับขนาดฟอนต์ให้ยืดหยุ่น */
-    line-height: 1.3; /* เพิ่มระยะบรรทัด */
-    white-space: normal; /* อนุญาตให้ข้อความขึ้นบรรทัดใหม่ */
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-}
-
-footer div {
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    display: inline;
-}
-
-/* Responsive design for footer */
-@media (max-width: 768px) {
-    footer {
-        margin: 25px 10px 12px;
-        padding: 12px 15px;
-        border-radius: 25px;
-        max-width: calc(100% - 20px);
-        font-size: clamp(0.65rem, 2.2vw, 0.8rem);
-        gap: 6px;
-        line-height: 1.4;
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        margin: 20px 5px 10px;
-        padding: 10px 12px;
-        border-radius: 20px;
-        max-width: calc(100% - 10px);
-        font-size: clamp(0.6rem, 2vw, 0.75rem);
-        gap: 4px;
-        line-height: 1.5;
-    }
-    
-    footer div {
-        white-space: normal;
-        display: block;
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    footer {
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    }
-    
-    footer::before {
-        background: linear-gradient(90deg, #e74c3c, #1abc9c, #3498db, #2ecc71, #f1c40f);
-    }
-}
-/* ===== TIME INPUTS STYLING - IMPROVED LAYOUT ===== */
-.time-inputs-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.time-input-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1; /* ทำให้ทั้งสองกลุ่มมีความกว้างเท่ากัน */
-  min-width: 0; /* ป้องกันปัญหา overflow */
-}
-
-.time-input-group input[type="time"] {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-.time-label {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  color: #666;
-  white-space: nowrap;
-}
-
-.time-separator {
-  font-weight: bold;
-  color: #333;
-  margin: 0 5px;
-  white-space: nowrap;
-  flex-shrink: 0; /* ป้องกันการหดตัว */
-}
-
-/* ปรับปรุงสำหรับมือถือ */
-@media (max-width: 768px) {
-  .time-inputs-container {
-    gap: 8px;
-  }
-  
-  .time-input-group input[type="time"] {
-    padding: 10px;
-    font-size: 16px; /* ป้องกัน zoom บน iOS */
-  }
-  
-  .time-label {
-    font-size: 0.8rem;
-  }
-  
-  .time-separator {
-    font-size: 0.9rem;
-    margin: 0 3px;
-  }
-}
-
-@media (max-width: 480px) {
-  .time-inputs-container {
-    gap: 5px;
-  }
-  
-  .time-input-group input[type="time"] {
-    padding: 8px;
-  }
-  
-  .time-label {
-    font-size: 0.75rem;
-  }
-  
-  .time-separator {
-    font-size: 0.85rem;
-    margin: 0 2px;
-  }
-}
-/* ===== MANAGEMENT ROW STYLING ===== */
-.management-row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.management-container {
-  width: 100%;
-}
-
-.select-wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-  width: 100%;
-  gap: 8px;
-}
-
-.manage-btn-inline {
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  font-size: 16px;
-  border-radius: 8px;
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.management-actions {
-  display: flex;
-  gap: 5px;
-  margin-top: 5px;
-  flex-wrap: wrap;
-}
-
-.add-btn, .edit-btn, .delete-btn, .reset-btn {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  flex: 1;
-  min-width: 60px;
-  color: white;
-}
-
-.add-btn { background-color: #28a745; }
-.edit-btn { background-color: #ffc107; color: #212529 !important; }
-.delete-btn { background-color: #dc3545; }
-.reset-btn { background-color: #17a2b8; }
-
-/* สำหรับเดสก์ท็อป */
-@media (min-width: 769px) {
-  .management-row {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-  
-  .management-container {
-    flex: 1;
-  }
-}
-
-/* สำหรับมือถือ */
-@media (max-width: 768px) {
-  .management-row {
-    flex-direction: row; /* เปลี่ยนเป็นแถวเดียวกันบนมือถือ */
-    flex-wrap: wrap; /* อนุญาตให้ขึ้นบรรทัดใหม่ถ้าจอเล็กเกิน */
-    gap: 8px;
-  }
-  
-  .management-container {
-    flex: 1 1 48%; /* ให้แต่ละคอนเทนเนอร์มีความกว้างประมาณครึ่งหนึ่ง */
-    min-width: 0; /* ป้องกันปัญหา overflow */
-  }
-  
-  .select-wrapper {
-    gap: 6px;
-  }
-  
-  .manage-btn-inline {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-  
-  .management-actions {
-    gap: 4px;
-  }
-  
-  .add-btn, .edit-btn, .delete-btn, .reset-btn {
-    padding: 5px 8px;
-    font-size: 11px;
-    min-width: 55px;
-  }
-}
-
-@media (max-width: 480px) {
-  .management-row {
-    gap: 6px;
-  }
-  
-  .manage-btn-inline {
-    width: 30px;
-    height: 30px;
-    font-size: 13px;
-  }
-  
-  .add-btn, .edit-btn, .delete-btn, .reset-btn {
-    padding: 4px 6px;
-    font-size: 10px;
-    min-width: 50px;
-  }
-}
-.management-container {
-    margin-bottom: 6px !important;
+#activity-form .form-section {
+    padding: 10px 8px !important;
+    margin-bottom: 12px !important;
 }
 
-.select-wrapper {
-    margin: 3px auto !important;
+#activity-form .section-content {
+    padding: 8px !important;
+    margin-bottom: 8px !important;
 }
 
 #activity-form label {
@@ -2412,352 +2102,227 @@ footer div {
 #activity-form textarea {
     padding: 6px 8px !important;
     font-size: 0.9rem !important;
+    margin-bottom: 4px !important;
 }
 
-.time-inputs-container {
-    margin-bottom: 6px !important;
-    gap: 4px !important;
-}
-/* ปรับปุ่มทำความสะอาดข้อมูลทั้งหมดให้พอดีกับเนื้อหา */
-.button-container .clean-data-btn {
-    width: auto !important;
-    flex: none !important;
-    padding: 10px 15px !important;
-    white-space: nowrap !important;
-    display: inline-block !important;
-}
-/* ===== MANAGEMENT ROW STYLING ===== */
+/* ===== IMPROVED COMPACT MANAGEMENT STYLING ===== */
 .management-row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
-  width: 100%;
+    margin-bottom: 8px !important;
+    gap: 6px !important;
 }
 
 .management-container {
-  width: 100%;
+    margin-bottom: 4px !important;
 }
 
 .select-wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-  width: 100%;
-  gap: 8px;
-}
-
-.manage-btn-inline {
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  font-size: 16px;
-  border-radius: 8px;
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+    margin: 2px auto 3px !important;
+    gap: 6px !important;
 }
 
 .management-actions {
-  display: flex;
-  gap: 5px;
-  margin-top: 5px;
-  flex-wrap: wrap;
+    margin-top: 3px !important;
+    margin-bottom: 2px !important;
+    gap: 3px !important;
 }
 
-.add-btn, .edit-btn, .delete-btn, .reset-btn {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  flex: 1;
-  min-width: 60px;
-  color: white;
+.management-actions button {
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    margin: 0 !important;
 }
 
-.add-btn { background-color: #28a745; }
-.edit-btn { background-color: #ffc107; color: #212529 !important; }
-.delete-btn { background-color: #dc3545; }
-.reset-btn { background-color: #17a2b8; }
-
-/* สำหรับเดสก์ท็อป */
-@media (min-width: 769px) {
-  .management-row {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-  
-  .management-container {
-    flex: 1;
-  }
+/* ===== IMPROVED COMPACT TIME INPUTS ===== */
+.time-inputs-container {
+    margin-bottom: 8px !important;
+    gap: 4px !important;
 }
 
-/* สำหรับมือถือ */
+.time-input-group {
+    margin: 0 !important;
+}
+
+.time-input-group input[type="time"] {
+    padding: 6px 8px !important;
+    margin: 0 !important;
+}
+
+.time-label {
+    margin-top: 2px !important;
+    margin-bottom: 0 !important;
+    font-size: 0.75rem !important;
+}
+
+/* ===== IMPROVED COMPACT BUTTON CONTAINER ===== */
+.button-container {
+    margin-top: 8px !important;
+    gap: 6px !important;
+}
+
+.button-container button {
+    margin-top: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 0.9rem !important;
+}
+
+/* ===== IMPROVED COMPACT MAIN HEADER ===== */
+.header-add-data {
+    margin: 5px 0 8px !important;
+    padding: 12px 15px !important;
+}
+
+/* สำหรับมือถือ - COMPACT FORM */
 @media (max-width: 768px) {
-  .management-row {
-    flex-direction: row; /* เปลี่ยนเป็นแถวเดียวกันบนมือถือ */
-    flex-wrap: wrap; /* อนุญาตให้ขึ้นบรรทัดใหม่ถ้าจอเล็กเกิน */
-    gap: 8px;
-  }
-  
-  .management-container {
-    flex: 1 1 48%; /* ให้แต่ละคอนเทนเนอร์มีความกว้างประมาณครึ่งหนึ่ง */
-    min-width: 0; /* ป้องกันปัญหา overflow */
-  }
-  
-  .select-wrapper {
-    gap: 6px;
-  }
-  
-  .manage-btn-inline {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-  
-  .management-actions {
-    gap: 4px;
-  }
-  
-  .add-btn, .edit-btn, .delete-btn, .reset-btn {
-    padding: 5px 8px;
-    font-size: 11px;
-    min-width: 55px;
-  }
+    #activity-form .form-section {
+        padding: 8px 6px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    #activity-form .section-content {
+        padding: 6px !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .management-row {
+        margin-bottom: 6px !important;
+        gap: 4px !important;
+    }
+    
+    .time-inputs-container {
+        margin-bottom: 6px !important;
+        gap: 3px !important;
+    }
+    
+    .button-container {
+        margin-top: 6px !important;
+        gap: 4px !important;
+    }
+    
+    .header-add-data {
+        margin: 3px 0 6px !important;
+        padding: 10px 12px !important;
+    }
 }
 
+/* สำหรับมือถือขนาดเล็ก - COMPACT FORM */
 @media (max-width: 480px) {
-  .management-row {
-    gap: 6px;
-  }
-  
-  .manage-btn-inline {
-    width: 30px;
-    height: 30px;
-    font-size: 13px;
-  }
-  
-  .add-btn, .edit-btn, .delete-btn, .reset-btn {
-    padding: 4px 6px;
-    font-size: 10px;
-    min-width: 50px;
-  }
-}
-/* สไตล์เฉพาะสำหรับแถวผู้ทำกิจกรรมและประเภทกิจกรรม */
-.management-row.compact-layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.management-row.compact-layout .management-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.management-row.compact-layout .select-wrapper {
-  width: 100%;
-  margin-bottom: 5px;
+    #activity-form {
+        padding: 5px !important;
+    }
+    
+    #activity-form .form-section {
+        padding: 6px 4px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    #activity-form .section-content {
+        padding: 4px !important;
+        margin-bottom: 4px !important;
+    }
+    
+    .management-row {
+        margin-bottom: 4px !important;
+        gap: 3px !important;
+    }
+    
+    .time-inputs-container {
+        margin-bottom: 4px !important;
+    }
+    
+    .button-container {
+        margin-top: 4px !important;
+    }
+    
+    .header-add-data {
+        margin: 2px 0 4px !important;
+        padding: 8px 10px !important;
+        font-size: 1rem !important;
+    }
 }
 
-.management-row.compact-layout .management-actions {
-  width: 100%;
-  justify-content: center;
-}
-
-/* สำหรับมือถือ */
-@media (max-width: 768px) {
-  .management-row.compact-layout {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-  
-  .management-row.compact-layout .management-container {
-    flex: 1;
-  }
-  
-  .management-row.compact-layout .select-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .management-row.compact-layout .manage-btn-inline {
-    margin-bottom: 5px;
-  }
-}
-.toast-notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    border-radius: 4px;
-    color: white;
-    font-weight: bold;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.toast-notification.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.toast-notification.success {
-    background-color: #28a745;
-}
-
-.toast-notification.error {
-    background-color: #dc3545;
-}
-
-.toast-notification.warning {
-    background-color: #ffc107;
-    color: #000;
-}
-
-.toast-notification.info {
-    background-color: #17a2b8;
-}
-/* สไตล์สำหรับ Modal เลือกวันที่ใหม่ */
-.format-modal-content .entry-form {
-    background-color: #f8f9fa;
-    padding: 15px;
+/* ===== IMPROVED SUMMARY RESULT STYLING ===== */
+.summaryResult {
+    padding: 20px;
+    background-color: #f9f9f9;
     border-radius: 8px;
     margin-bottom: 20px;
-}
-
-.format-modal-content .entry-group {
-    margin-bottom: 15px;
-}
-
-.format-modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.format-modal-content input[type="date"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
     box-sizing: border-box;
 }
 
-.format-modal-content input[type="date"]:focus {
-    border-color: #4a90e2;
-    outline: none;
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+.summaryResult h2 {
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-/* ปรับปรุงปุ่มใน modal */
-.format-modal-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.format-modal-buttons button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.format-modal-buttons .btn-display {
-    background-color: #28a745;
-    color: white;
-}
-
-.format-modal-buttons .btn-display:hover {
-    background-color: #218838;
-}
-
-.format-modal-buttons .btn-cancel {
-    background-color: #6c757d;
-    color: white;
-}
-
-.format-modal-buttons .btn-cancel:hover {
-    background-color: #5a6268;
-}
-#save-activity-button {
-  display: inline-block;
-  background-color: #FF00FF;
-  color: white;
-  font-weight: bold;
-  padding: 8px 16px;
-  font-size: 1.1rem;
-  border: 3px solid #196B24;
-  border-radius: 28px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  width: fit-content;
-  box-sizing: border-box;
-}
-
-  /* สไตล์เมื่อโฟกัสเพื่อการเข้าถึง */
-  #save-activity-button:focus {
-    outline: 3px solid rgba(46,204,113,0.25);
-    outline-offset: 2px;
-  }
-
-  /* เอฟเฟกต์เล็กน้อยเมื่อชี้เมาส์ */
-  #save-activity-button:hover {
-    transform: translateY(-1px);
-  }
-/* เพิ่มในส่วนท้ายของ style.css */
-#add-data-section .entry-form {
-    margin-top: 0;
-}
-
-#add-data-section .date-time-group {
-    margin-top: 0;
+.summaryResult h3 {
+    color: #555;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
-/* ===== NO BORDER STYLING ===== */
-.form-section.no-border {
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
+
+.summaryResult p {
+    margin: 8px 0;
+    line-height: 1.5;
 }
 
-/* สำหรับมือถือ */
-@media (max-width: 768px) {
-    .form-section.no-border {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
+.summaryResult ul {
+    margin: 10px 0;
+    padding-left: 20px;
 }
 
-@media (max-width: 480px) {
-    .form-section.no-border {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
+.summaryResult li {
+    margin-bottom: 5px;
 }
+
+/* ===== IMPROVED TABLE STYLING FOR SUMMARY ===== */
+.summaryResult table {
+    min-width: 450px;
+    font-size: clamp(0.5rem, 1.8vw, 0.65rem) !important;
+    text-align: left;
+}
+
+.summaryResult th,
+.summaryResult td {
+    font-size: clamp(0.5rem, 1.8vw, 0.65rem) !important;
+    padding: 2px 1px !important;
+    line-height: 1.1 !important;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ===== IMPROVED DARK MODE FOR SUMMARY ===== */
+@media (prefers-color-scheme: dark) {
+    .summaryResult {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+    }
+    
+    .summaryResult h2 {
+        color: #e0e0e0;
+        border-bottom-color: #4CAF50;
+    }
+    
+    .summaryResult h3 {
+        color: #ccc;
+    }
+    
+    .summary-subsection .entry-form {
+        background-color: #2d2d2d;
+        border-left-color: #444;
+    }
+    
+    .summary-subsection label {
+        color: #e0e0e0;
+    }
+    
+    .summary-subsection select {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+        border-color: #444;
+    }
 }
