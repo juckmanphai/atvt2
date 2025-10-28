@@ -1411,7 +1411,7 @@ footer div {
     /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
     .summaryResult th:nth-child(1), /* กิจกรรม */
     .summaryResult td:nth-child(1) {
-        width: 20% !important;
+        width: 12% !important;
         min-width: 50px;
         max-width: 70px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
@@ -1427,7 +1427,7 @@ footer div {
     
     .summaryResult th:nth-child(3), /* เวลา */
     .summaryResult td:nth-child(3) {
-        width: 18% !important;
+        width: 21% !important;
         min-width: 60px;
         max-width: 80px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
@@ -1435,7 +1435,7 @@ footer div {
     
     .summaryResult th:nth-child(4), /* รวมเวลา */
     .summaryResult td:nth-child(4) {
-        width: 14% !important;
+        width: 17% !important;
         min-width: 45px;
         max-width: 60px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
@@ -1443,7 +1443,7 @@ footer div {
     
     .summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
     .summaryResult td:nth-child(5) {
-        width: 32% !important;
+        width: 34% !important;
         min-width: 70px;
         max-width: 100px;
         font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
