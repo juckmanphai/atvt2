@@ -98,12 +98,26 @@
                 <div class="management-row compact-layout">
                   <!-- ส่วนจัดการผู้ทำกิจกรรม -->
                   <div class="management-container">
-                    <div class="select-wrapper">
-                      <button type="button" class="manage-btn-inline" onclick="toggleManagementActions('personActions')" title="จัดการผู้ทำกิจกรรม">⚙️</button>
-                      <select id="personSelect" onchange="checkCustomOption(this)" required style="flex: 1;">
-                        <option value="">-- เลือกผู้ทำกิจกรรม --</option>
-                      </select>
-                    </div>
+<div class="select-wrapper" style="display: flex; align-items: center; gap: 6px; width: 100%;">
+  <button 
+    type="button" 
+    class="manage-btn-inline" 
+    onclick="toggleManagementActions('personActions')" 
+    title="จัดการผู้ทำกิจกรรม"
+    style="font-size: clamp(14px, 3vw, 18px);"
+  >
+    ⚙️
+  </button>
+
+  <select 
+    id="personSelect" 
+    onchange="checkCustomOption(this)" 
+    required 
+    style="flex: 1; font-size: clamp(12px, 3vw, 16px); padding: 6px; border-radius: 6px;"
+  >
+    <option value="">-- เลือกผู้ทำกิจกรรม --</option>
+  </select>
+</div>
 
                     <!-- ซ่อนเมนูย่อยการจัดการผู้ทำกิจกรรม -->
                     <div class="management-actions" id="personActions" style="display: none;">
@@ -504,4 +518,5 @@
 </body>
 
 </html>
+
 
