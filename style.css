@@ -1408,57 +1408,57 @@ footer div {
         padding: 3px 4px !important;
     }
     
-    /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
-    .summaryResult th:nth-child(1), /* กิจกรรม */
-    .summaryResult td:nth-child(1) {
-        width: 12% !important;
-        min-width: 50px;
-        max-width: 70px;
-        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
-    }
-    
-    .summaryResult th:nth-child(2), /* วันที่ */
-    .summaryResult td:nth-child(2) {
-        width: 16% !important;
-        min-width: 45px;
-        max-width: 60px;
-        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
-    }
-    
-    .summaryResult th:nth-child(3), /* เวลา */
-    .summaryResult td:nth-child(3) {
-        width: 20% !important;
-        min-width: 60px;
-        max-width: 80px;
-        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
-    }
-    
-    .summaryResult th:nth-child(4), /* รวมเวลา */
-    .summaryResult td:nth-child(4) {
-        width: 18% !important;
-        min-width: 45px;
-        max-width: 60px;
-        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
-    }
-    
-    .summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
-    .summaryResult td:nth-child(5) {
-        width: 34% !important;
-        min-width: 70px;
-        max-width: 100px;
-        font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
-    }
-    
-    .summaryResult[style*="border: 1.5px solid #F660EB"] {
-        padding: 8px !important;
-    }
-    
-    .modal-content-container {
-        padding: 5px !important;
-        margin: 5px !important;
-        width: calc(100% - 10px) !important;
-        max-width: calc(100% - 10px) !important;
-    }
+/* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
+.summaryResult th:nth-child(1), /* กิจกรรม */
+.summaryResult td:nth-child(1) {
+    width: 11% !important;
+    min-width: 40px;  /* ลดจาก 50px */
+    max-width: 55px;  /* ลดจาก 70px */
+    font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
+}
+
+.summaryResult th:nth-child(2), /* วันที่ */
+.summaryResult td:nth-child(2) {
+    width: 16% !important;
+    min-width: 40px;  /* ลดจาก 45px */
+    max-width: 50px;  /* ลดจาก 60px */
+    font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
+}
+
+.summaryResult th:nth-child(3), /* เวลา */
+.summaryResult td:nth-child(3) {
+    width: 19% !important;
+    min-width: 50px;  /* ลดจาก 60px */
+    max-width: 65px;  /* ลดจาก 80px */
+    font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
+}
+
+.summaryResult th:nth-child(4), /* รวมเวลา */
+.summaryResult td:nth-child(4) {
+    width: 20% !important;
+    min-width: 40px;  /* ลดจาก 45px */
+    max-width: 50px;  /* ลดจาก 60px */
+    font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
+}
+
+.summaryResult th:nth-child(5), /* รายละเอียด - ตัดข้อความด้วย ... */
+.summaryResult td:nth-child(5) {
+    width: 34% !important;
+    min-width: 60px;  /* ลดจาก 70px */
+    max-width: 80px;  /* ลดจาก 100px */
+    font-size: clamp(0.3rem, 2.8vw, 0.55rem) !important;
+}
+
+.summaryResult[style*="border: 1.5px solid #F660EB"] {
+    padding: 8px !important;
+}
+
+.modal-content-container {
+    padding: 5px !important;
+    margin: 5px !important;
+    width: calc(100% - 10px) !important;
+    max-width: calc(100% - 10px) !important;
+}
     
     /* Footer ultra mobile */
     footer {
