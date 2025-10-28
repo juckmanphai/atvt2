@@ -1,3 +1,5 @@
+[file name]: style.css
+[file content begin]
 /* ===== RESET & BASE STYLES ===== */
 * {
     box-sizing: border-box;
@@ -633,6 +635,142 @@ tr:hover td {
 
 .summaryResult tr:hover td {
     color: #e17055;
+}
+
+/* ===== MOBILE SUMMARY TABLE IMPROVEMENTS ===== */
+@media (max-width: 768px) {
+  /* ปรับปรุงตารางสรุปผลบนมือถือ */
+  .summaryResult table {
+    width: 100% !important;
+    min-width: unset !important;
+    font-size: clamp(0.5rem, 2.5vw, 0.65rem) !important;
+    table-layout: auto; /* เปลี่ยนจาก fixed เป็น auto เพื่อปรับขนาดตามเนื้อหา */
+  }
+  
+  .summaryResult th,
+  .summaryResult td {
+    font-size: clamp(0.5rem, 2.5vw, 0.65rem) !important;
+    padding: 4px 6px !important;
+    line-height: 1.2;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  /* ปรับความกว้างคอลัมน์ให้เหมาะสมกับมือถือ - ใช้ auto แทนการกำหนด width แบบตายตัว */
+  .summaryResult th:nth-child(1), /* กิจกรรม */
+  .summaryResult td:nth-child(1) {
+    width: auto !important;
+    min-width: 60px;
+    max-width: 100px;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  .summaryResult th:nth-child(2), /* วันที่ */
+  .summaryResult td:nth-child(2) {
+    width: auto !important;
+    min-width: 50px;
+    max-width: 80px;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  .summaryResult th:nth-child(3), /* เวลา */
+  .summaryResult td:nth-child(3) {
+    width: auto !important;
+    min-width: 70px;
+    max-width: 100px;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  .summaryResult th:nth-child(4), /* รวมเวลา */
+  .summaryResult td:nth-child(4) {
+    width: auto !important;
+    min-width: 50px;
+    max-width: 80px;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  /* คอลัมน์รายละเอียด - ตัดข้อความด้วย ... เมื่อเนื้อหายาวเกิน */
+  .summaryResult th:nth-child(5), 
+  .summaryResult td:nth-child(5) {
+    width: auto !important;
+    min-width: 80px;
+    max-width: 150px;
+    white-space: nowrap !important; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: hidden !important; /* ซ่อนข้อความที่ล้น */
+    text-overflow: ellipsis !important; /* แสดง ... เมื่อข้อความยาวเกิน */
+  }
+}
+
+@media (max-width: 480px) {
+  /* ปรับปรุงตารางสำหรับหน้าจอเล็กมาก */
+  .summaryResult table {
+    font-size: clamp(0.45rem, 3vw, 0.6rem) !important;
+  }
+  
+  .summaryResult th,
+  .summaryResult td {
+    font-size: clamp(0.45rem, 3vw, 0.6rem) !important;
+    padding: 3px 4px !important;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  /* ปรับความกว้างคอลัมน์ให้แคบลงสำหรับหน้าจอเล็กมาก */
+  .summaryResult th:nth-child(1), /* กิจกรรม */
+  .summaryResult td:nth-child(1) {
+    width: auto !important;
+    min-width: 50px;
+    max-width: 70px;
+    font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  .summaryResult th:nth-child(2), /* วันที่ */
+  .summaryResult td:nth-child(2) {
+    width: auto !important;
+    min-width: 45px;
+    max-width: 60px;
+    font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  .summaryResult th:nth-child(3), /* เวลา */
+  .summaryResult td:nth-child(3) {
+    width: auto !important;
+    min-width: 60px;
+    max-width: 80px;
+    font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  .summaryResult th:nth-child(4), /* รวมเวลา */
+  .summaryResult td:nth-child(4) {
+    width: auto !important;
+    min-width: 45px;
+    max-width: 60px;
+    font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    white-space: nowrap; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: visible; /* เปลี่ยนจาก hidden เป็น visible */
+  }
+  
+  /* คอลัมน์รายละเอียด - ตัดข้อความด้วย ... เมื่อเนื้อหายาวเกิน */
+  .summaryResult th:nth-child(5), 
+  .summaryResult td:nth-child(5) {
+    width: auto !important;
+    min-width: 70px;
+    max-width: 120px;
+    font-size: clamp(0.4rem, 2.8vw, 0.55rem) !important;
+    white-space: nowrap !important; /* กำหนดให้ข้อความแสดงแถวเดียว */
+    overflow: hidden !important; /* ซ่อนข้อความที่ล้น */
+    text-overflow: ellipsis !important; /* แสดง ... เมื่อข้อความยาวเกิน */
+  }
 }
 
 /* ===== MODAL & POPUP STYLING ===== */
@@ -1527,3 +1665,4 @@ textarea:focus {
         break-inside: avoid;
     }
 }
+[file content end]
