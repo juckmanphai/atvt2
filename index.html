@@ -450,29 +450,25 @@
                 </div>
                 
                 <!-- ฟิลด์วันที่ (จะแสดง/ซ่อนตามประเภทที่เลือก) -->
-                <div id="summary-date-picker" class="summary-subsection hidden">
-                  <label class="summary-subsection-header">เลือกวันที่</label>
-                  <div class="entry-form" style="margin-bottom: 0;">
-                    <div class="entry-group">
-                      <label for="summary-date">เลือกวันที่:</label>
-                      <input type="date" id="summary-date">
-                    </div>
-                  </div>
-                </div>
-                
-                <div id="summary-date-range" class="summary-subsection hidden">
-                  <label class="summary-subsection-header">เลือกช่วงวันที่</label>
-                  <div class="entry-form" style="margin-bottom: 0;">
-                    <div class="entry-group">
-                      <label for="summary-start-date">จากวันที่:</label>
-                      <input type="date" id="summary-start-date">
-                    </div>
-                    <div class="entry-group">
-                      <label for="summary-end-date">ถึงวันที่:</label>
-                      <input type="date" id="summary-end-date">
-                    </div>
-                  </div>
-                </div>
+<div id="summary-date-picker" class="summary-subsection hidden">
+  <label class="summary-subsection-header">เลือกวันที่</label>
+  <div class="summary-date-display">
+    <div class="date-label">เลือกวันที่:</div>
+    <input type="date" id="summary-date" style="width: 100%; max-width: 200px; padding: 8px; font-size: 14px;">
+  </div>
+</div>
+
+<div id="summary-date-range" class="summary-subsection hidden">
+  <label class="summary-subsection-header">เลือกช่วงวันที่</label>
+  <div class="summary-date-display">
+    <div class="date-label">จากวันที่:</div>
+    <input type="date" id="summary-start-date" style="width: 100%; max-width: 200px; padding: 8px; font-size: 14px;">
+  </div>
+  <div class="summary-date-display">
+    <div class="date-label">ถึงวันที่:</div>
+    <input type="date" id="summary-end-date" style="width: 100%; max-width: 200px; padding: 8px; font-size: 14px;">
+  </div>
+</div>
                 
                 <!-- ปุ่มดูสรุป -->
                 <div class="summary-subsection">

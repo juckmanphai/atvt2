@@ -3143,7 +3143,51 @@ footer div {
       padding: 8px 8px 8px 85px; /* ปรับ padding สำหรับมือถือ */
     }
   }
+/* สไตล์สำหรับแสดงวันที่ในสรุปกิจกรรม */
+.summary-date-display {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
 
+.summary-date-display .date-label {
+  width: 100px;
+  text-align: left;
+  color: #000;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.summary-date-display input[type="date"] {
+  flex: 1;
+  max-width: 200px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* สำหรับมือถือ */
+@media (max-width: 768px) {
+  .summary-date-display {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .summary-date-display .date-label {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+  
+  .summary-date-display input[type="date"] {
+    max-width: 100%;
+    width: 100%;
+  }
+}
 /* ===== NO BORDER STYLING ===== */
 .form-section.no-border {
     background: none !important;
