@@ -2779,7 +2779,7 @@ function exportSummaryToPDF() {
             <meta charset="UTF-8">
             <style>
                 @page {
-                    margin: 10mm 5mm 8mm 3mm;
+                    margin: 10mm 5mm 3mm 10mm;
                     size: A4;
                     @top-right {
                         content: "หน้า " counter(page) " จาก " counter(pages);
@@ -2832,7 +2832,7 @@ function exportSummaryToPDF() {
                 }
                 th,td { 
                     border:0.5px solid #000; 
-                    padding:4px; 
+                    padding:2px; 
                     font-size:0.7rem; 
                     word-wrap: break-word; 
                     text-align: center; /* เนื้อหาตารางจัดกึ่งกลาง */
@@ -3984,7 +3984,7 @@ function initializeDefaultData() {
     // กำหนดค่าเริ่มต้นสำหรับผู้ทำกิจกรรม
     if (!getFromLocalStorage('persons') || getFromLocalStorage('persons').length === 0) {
         const defaultPersons = [
-            { name: 'อาจารย์' },
+            { name: 'พระอาจารย์' },
             { name: 'ลูกศิษย์' },
             { name: 'เด็กวัด' },
         ];
